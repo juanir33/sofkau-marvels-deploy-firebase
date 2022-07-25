@@ -1,0 +1,34 @@
+<div class="displayTable">
+    <div class="displayTableCell">
+      <div class="authBlock">
+        <h1 class="text-center text-white mb-5">Bienvenido a SofkaUMarvels!</h1>
+        <div class="formGroup">
+          <input type="email" class="formControl" placeholder="Email usuario" #userName required>
+        </div>
+        <div class="formGroup">
+          <input type="password" class="formControl" placeholder="Contraseña" #userPassword required>
+        </div>
+        <!-- Calling SignIn Api from AuthService -->
+        <div class="formGroup">
+          <input type="button" class="btn btnPrimary" value="Ingresar" (click)="authService.SignIn(userName.value, userPassword.value)">
+        </div>
+        <div class="formGroup">
+          <span class="or"><span class="orInner">O</span></span>
+        </div>
+        <!-- Calling GoogleAuth Api from AuthService -->
+        <div class="formGroup">
+          <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
+            <i class="fab fa-google-plus-g"></i>
+           Ingresar con Google
+          </button>
+        </div>
+        <div class="forgotPassword">
+          <span routerLink="/forgot-password">Olvidaste la contraseña?</span>
+        </div>
+      </div>
+      <div class="redirectToLogin">
+        <span class="text-black">No tienes cuenta?<span class="redirect " routerLink="/register-user">Registrate aqui</span></span>
+      </div>
+    </div>
+  </div>
+  
