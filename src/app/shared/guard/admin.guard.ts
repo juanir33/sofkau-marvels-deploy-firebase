@@ -12,9 +12,11 @@ export class AdminGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean{
        let user = JSON.parse(localStorage.getItem('user')!)
-      if( user.uid !== "KzO23QhzobSiYFjVf1Fz3kxLGUH3"  ) {
-        this.router.navigate(['dashboard'])
-        alert("no estas autorizado")
+      if( user.uid !== "bmm4sSFQOQOmshnSIaVzNj5yqYu2" && 
+      user.uid !== "nPU3BmH8SfTSPZfGRaINNpG9LUr2" 
+      && user.uid !== "nPU3BmH8SfTSPZfGRaINNpG9LUr2") {
+          alert("no estas autorizado");
+       this.router.navigate(['dashboard']);
       }
     return true;
   }

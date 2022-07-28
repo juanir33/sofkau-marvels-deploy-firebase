@@ -4,6 +4,7 @@ import { Observable, Subject } from 'rxjs';
 import {tap} from 'rxjs/operators';
 import { JugadorId } from 'src/app/components/dashboard/dashboard.component';
 import { ApuestaModel } from 'src/app/interface/apuesta.interface';
+import { environment } from 'src/environments/environment.prod';
 //import { JugadorId } from 'src/app/interface/jugadorId';
 
 @Injectable({
@@ -11,7 +12,7 @@ import { ApuestaModel } from 'src/app/interface/apuesta.interface';
 })
 export class PartidaService {
 
-  private partidaURl = '/api/partida/';
+  private partidaURl = `${environment.baseUrl}/api/partida/`;
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
