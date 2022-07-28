@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-import Swal from 'sweetalert2';
 import { AuthService } from '../services/auth.service';
 
 @Injectable({
@@ -13,11 +12,9 @@ export class AdminGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean{
        let user = JSON.parse(localStorage.getItem('user')!)
-      if( user.uid !== "GtEwNly8sYQROy1r2EW5ThmG8RG3" &&
-      user.uid !== "nPU3BmH8SfTSPZfGRaINNpG9LUr2" && 
-      user.uid !== "bmm4sSFQOQOmshnSIaVzNj5yqYu2") {
-        Swal.fire("No estas autorizado a ingresar a esta pagina volver");
+      if( user.uid !== "KzO23QhzobSiYFjVf1Fz3kxLGUH3"  ) {
         this.router.navigate(['dashboard'])
+        alert("no estas autorizado")
       }
     return true;
   }

@@ -2,7 +2,6 @@ import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
-import { Subscription } from 'rxjs';
 
 import { CartaserviceService } from 'src/app/shared/services/cartaservice.service';
 import { Card } from '../card/card.component';
@@ -130,7 +129,7 @@ export class TablacrudComponent implements AfterViewInit{
   "xaviervsmagneto.jpg"];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-   subscripcion!: Subscription;
+ 
   constructor(private cardService: CartaserviceService,
     private formBuilder : FormBuilder) {
       
@@ -146,9 +145,6 @@ export class TablacrudComponent implements AfterViewInit{
   ngAfterViewInit(): void {
     
     this.get()
-    this.subscripcion = this.cardService.refresh().subscribe(
-      () => this.get()
-     )
     
   }
   
